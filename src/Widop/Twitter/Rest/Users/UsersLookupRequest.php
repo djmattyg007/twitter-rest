@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Users;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -34,7 +34,7 @@ class UsersLookupRequest extends AbstractPostRequest
 /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('user_id', OptionInterface::TYPE_POST)
@@ -45,7 +45,7 @@ class UsersLookupRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['user_id']) && !isset($optionBag['screen_name'])) {
             throw new \RuntimeException('You must provide a series of user ids or screen names.');

@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Statuses;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 
 /**
  * Statuses home timeline request.
@@ -28,7 +28,7 @@ class StatusesHomeTimelineRequest extends StatusesMentionsTimelineRequest
     /**
      * {@inheritdoc}
      */
-    public function configureOptionBag(OptionBag $optionBag)
+    public function configureOptionBag(OptionBagInterface $optionBag)
     {
         parent::configureOptionBag($optionBag);
 

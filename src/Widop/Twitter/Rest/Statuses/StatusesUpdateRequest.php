@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Statuses;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -42,19 +43,22 @@ class StatusesUpdateRequest extends AbstractPostRequest
     /**
      * Creates a statuses update request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $status The tweet status.
      */
-    public function __construct($status)
+    public function __construct(OptionBagFactoryInterface $factory, $status = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setStatus($status);
+        if ($status !== null) {
+            $this->setStatus($status);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('status', OptionInterface::TYPE_POST)
@@ -69,7 +73,7 @@ class StatusesUpdateRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['status'])) {
             throw new \RuntimeException('You must provide a status.');

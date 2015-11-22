@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Trends;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -31,21 +32,26 @@ class TrendsClosestRequest extends AbstractGetRequest
     /**
      * Creates a trends closest request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $latitude  The latitude.
      * @param string $longitude The longitude.
      */
-    public function __construct($latitude, $longitude)
+    public function __construct(OptionBagFactoryInterface $factory, $latitude = null, $longitude = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setLat($latitude);
-        $this->setLong($longitude);
+        if ($latitude !== null) {
+            $this->setLat($latitude);
+        }
+        if ($longitude !== null) {
+            $this->setLong($longitude);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('lat')
@@ -55,7 +61,7 @@ class TrendsClosestRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['lat'])) {
             throw new \RuntimeException('You must provide a latitude.');

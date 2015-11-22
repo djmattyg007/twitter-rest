@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Account;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -42,7 +42,7 @@ class AccountUpdateProfileColorsRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('profile_background_color', OptionInterface::TYPE_POST)
@@ -57,7 +57,7 @@ class AccountUpdateProfileColorsRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['profile_background_color'])
             && !isset($optionBag['profile_link_color'])

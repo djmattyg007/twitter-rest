@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Lists;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -45,7 +45,7 @@ class ListsStatusesRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('list_id')
@@ -62,7 +62,7 @@ class ListsStatusesRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['list_id']) && !isset($optionBag['slug'])) {
             throw new \RuntimeException('You must provide a list id or slug.');

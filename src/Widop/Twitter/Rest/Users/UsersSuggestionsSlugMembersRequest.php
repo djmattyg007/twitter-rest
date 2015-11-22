@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Users;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
@@ -30,19 +31,22 @@ class UsersSuggestionsSlugMembersRequest extends AbstractGetRequest
     /**
      * Creates a users suggestions slug request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $slug The list/category slug.
      */
-    public function __construct($slug)
+    public function __construct(OptionBagFactoryInterface $factory, $slug = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setSlug($slug);
+        if ($slug !== null) {
+            $this->setSlug($slug);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('slug', OptionInterface::TYPE_PATH);
     }
@@ -50,7 +54,7 @@ class UsersSuggestionsSlugMembersRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['slug'])) {
             throw new \RuntimeException('You must provide a slug.');

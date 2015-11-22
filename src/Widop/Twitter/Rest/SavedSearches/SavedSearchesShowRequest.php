@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\SavedSearches;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
@@ -30,19 +31,22 @@ class SavedSearchesShowRequest extends AbstractGetRequest
     /**
      * Creates a saved searches show request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $id The ssaved search identifier.
      */
-    public function __construct($id)
+    public function __construct(OptionBagFactoryInterface $factory, $id = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setId($id);
+        if ($id !== null) {
+            $this->setId($id);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('id', OptionInterface::TYPE_PATH);
     }
@@ -50,7 +54,7 @@ class SavedSearchesShowRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['id'])) {
             throw new \RuntimeException('You must provide an id.');

@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Blocks;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -33,7 +33,7 @@ class BlocksListRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('include_entities')

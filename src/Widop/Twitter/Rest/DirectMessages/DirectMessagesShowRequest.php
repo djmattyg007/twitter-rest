@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\DirectMessages;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -29,19 +30,22 @@ class DirectMessagesShowRequest extends AbstractGetRequest
     /**
      * Creates a direct messages show request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $id The tweet identifier.
      */
-    public function __construct($id)
+    public function __construct(OptionBagFactoryInterface $factory, $id = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setId($id);
+        if ($id !== null) {
+            $this->setId($id);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('id');
     }
@@ -49,7 +53,7 @@ class DirectMessagesShowRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['id'])) {
             throw new \RuntimeException('You must provide an id.');

@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Geo;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -47,7 +47,7 @@ class GeoSearchRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('lat')
@@ -65,7 +65,7 @@ class GeoSearchRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         $atLeastOneMandatoryOption = false;
 

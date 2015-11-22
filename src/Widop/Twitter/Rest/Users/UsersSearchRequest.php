@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Users;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -35,19 +36,22 @@ class UsersSearchRequest extends AbstractGetRequest
     /**
      * Creates a search tweets request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $query The search query.
      */
-    public function __construct($query)
+    public function __construct(OptionBagFactoryInterface $factory, $query = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setQ($query);
+        if ($query !== null) {
+            $this->setQ($query);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('q')
@@ -59,7 +63,7 @@ class UsersSearchRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['q'])) {
             throw new \RuntimeException('You must specify a query.');

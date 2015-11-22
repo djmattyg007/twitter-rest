@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Lists;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 
 /**
  * Lists subscribers request.
@@ -28,7 +28,7 @@ class ListsSubscribersRequest extends AbstractListsSubscribersGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         parent::configureOptionBag($optionBag);
 

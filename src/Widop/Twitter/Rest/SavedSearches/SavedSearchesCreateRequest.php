@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\SavedSearches;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -30,19 +31,22 @@ class SavedSearchesCreateRequest extends AbstractPostRequest
     /**
      * Creates a saved searches create request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $query The saved search query.
      */
-    public function __construct($query)
+    public function __construct(OptionBagFactoryInterface $factory, $query = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setQuery($query);
+        if ($query !== null) {
+            $this->setQuery($query);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('query', OptionInterface::TYPE_POST);
     }
@@ -50,7 +54,7 @@ class SavedSearchesCreateRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['query'])) {
             throw new \RuntimeException('You must provide a query.');

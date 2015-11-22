@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Trends;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -32,19 +33,22 @@ class TrendsPlaceRequest extends AbstractGetRequest
     /**
      * Creates a trends place request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $id The WOEID.
      */
-    public function __construct($id)
+    public function __construct(OptionBagFactoryInterface $factory, $id = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setId($id);
+        if ($id !== null) {
+            $this->setId($id);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('id')
@@ -54,7 +58,7 @@ class TrendsPlaceRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['id'])) {
             throw new \RuntimeException('You must provide a WOEID.');

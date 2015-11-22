@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Geo;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
@@ -30,19 +31,22 @@ class GeoIdPlaceIdRequest extends AbstractGetRequest
     /**
      * Creates a geo id place id request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $placeId The place id.
      */
-    public function __construct($placeId)
+    public function __construct(OptionBagFactoryInterface $factory, $placeId = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setPlaceId($placeId);
+        if ($placeId !== null) {
+            $this->setPlaceId($placeId);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('place_id', OptionInterface::TYPE_PATH);
     }
@@ -50,7 +54,7 @@ class GeoIdPlaceIdRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['place_id'])) {
             throw new \RuntimeException('You must provide a place id.');

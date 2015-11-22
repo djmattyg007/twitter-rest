@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Users;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -29,7 +29,7 @@ class UsersSuggestionsRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag->register('lang');
     }

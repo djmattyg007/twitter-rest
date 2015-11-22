@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Friendships;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -31,7 +31,7 @@ class FriendshipsIncomingRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('cursor')

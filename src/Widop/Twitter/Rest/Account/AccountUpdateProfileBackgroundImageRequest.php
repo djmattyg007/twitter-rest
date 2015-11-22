@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Account;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -38,7 +38,7 @@ class AccountUpdateProfileBackgroundImageRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('image', OptionInterface::TYPE_POST)
@@ -51,7 +51,7 @@ class AccountUpdateProfileBackgroundImageRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['image']) && !isset($optionBag['tile']) && !isset($optionBag['use'])) {
             throw new \RuntimeException('You must provide either an image, tile or use.');

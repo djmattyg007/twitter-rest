@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Lists;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -34,19 +35,22 @@ class ListsCreateRequest extends AbstractPostRequest
     /**
      * Creates a lists create request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $name The name for the list.
      */
-    public function __construct($name)
+    public function __construct(OptionBagFactoryInterface $factory, $name = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setName($name);
+        if ($name !== null) {
+            $this->setName($name);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('name', OptionInterface::TYPE_POST)
@@ -57,7 +61,7 @@ class ListsCreateRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['name'])) {
             throw new \RuntimeException('You must provide a name.');

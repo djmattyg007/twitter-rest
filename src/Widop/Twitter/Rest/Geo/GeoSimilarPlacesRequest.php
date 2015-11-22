@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Geo;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -39,23 +40,30 @@ class GeoSimilarPlacesRequest extends AbstractGetRequest
     /**
      * Creates a geo similar places request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $latitude  The latitude.
      * @param string $longitude The longitude.
      * @param string $name      The name of a place.
      */
-    public function __construct($latitude, $longitude, $name)
+    public function __construct(OptionBagFactoryInterface $factory, $latitude = null, $longitude = null, $name = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setLat($latitude);
-        $this->setLong($longitude);
-        $this->setName($name);
+        if ($latitude !== null) {
+            $this->setLat($latitude);
+        }
+        if ($longitude !== null) {
+            $this->setLong($longitude);
+        }
+        if ($name !== null) {
+            $this->setName($name);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('lat')
@@ -69,7 +77,7 @@ class GeoSimilarPlacesRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['lat'])) {
             throw new \RuntimeException('You must provide a latitude.');

@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\DirectMessages;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 use Widop\Twitter\Rest\AbstractPostRequest;
 
@@ -34,19 +35,22 @@ class DirectMessagesNewRequest extends AbstractPostRequest
     /**
      * Creates a direct messages new request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $text The text of the direct message.
      */
-    public function __construct($text)
+    public function __construct(OptionBagFactoryInterface $factory, $text = null)
     {
-        parent::__construct();
+        parent::__construct($factory);
 
-        $this->setText($text);
+        if ($text !== null) {
+            $this->setText($text);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('user_id', OptionInterface::TYPE_POST)
@@ -57,7 +61,7 @@ class DirectMessagesNewRequest extends AbstractPostRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['user_id']) && !isset($optionBag['screen_name'])) {
             throw new \RuntimeException('You must provide a user id or a screen name.');

@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Friendships;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 use Widop\Twitter\Rest\AbstractGetRequest;
 
 /**
@@ -35,7 +35,7 @@ class FriendshipsShowRequest extends AbstractGetRequest
 /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         $optionBag
             ->register('source_id')
@@ -47,7 +47,7 @@ class FriendshipsShowRequest extends AbstractGetRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         if (!isset($optionBag['source_id']) && !isset($optionBag['source_screen_name'])) {
             throw new \RuntimeException('You must provide a source id or a source screen name.');

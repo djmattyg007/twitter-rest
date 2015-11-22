@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Rest\Statuses;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
 
 /**
  * Statuses retweets of me request.
@@ -34,7 +34,7 @@ class StatusesRetweetsOfMeRequest extends AbstractTimelineRequest
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         parent::configureOptionBag($optionBag);
 

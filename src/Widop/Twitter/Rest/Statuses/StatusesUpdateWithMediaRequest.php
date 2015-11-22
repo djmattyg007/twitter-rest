@@ -11,7 +11,8 @@
 
 namespace Widop\Twitter\Rest\Statuses;
 
-use Widop\Twitter\Options\OptionBag;
+use Widop\Twitter\Options\OptionBagInterface;
+use Widop\Twitter\Options\OptionBagFactoryInterface;
 use Widop\Twitter\Options\OptionInterface;
 
 /**
@@ -29,20 +30,23 @@ class StatusesUpdateWithMediaRequest extends StatusesUpdateRequest
     /**
      * Creates a statuses update with media request.
      *
+     * @param \Widop\Twitter\Options\OptionBagFactoryInterface $factory
      * @param string $status The status.
      * @param string $media  The media path.
      */
-    public function __construct($status, $media)
+    public function __construct(OptionBagFactoryInterface $factory, $status = null, $media = null)
     {
-        parent::__construct($status);
+        parent::__construct($factory, $status);
 
-        $this->setMedia($media);
+        if ($media !== null) {
+            $this->setMedia($media);
+        }
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function configureOptionBag(OptionBag $optionBag)
+    protected function configureOptionBag(OptionBagInterface $optionBag)
     {
         parent::configureOptionBag($optionBag);
 
@@ -52,7 +56,7 @@ class StatusesUpdateWithMediaRequest extends StatusesUpdateRequest
     /**
      * {@inheritdoc}
      */
-    protected function validateOptionBag(OptionBag $optionBag)
+    protected function validateOptionBag(OptionBagInterface $optionBag)
     {
         parent::validateOptionBag($optionBag);
 
