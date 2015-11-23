@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Lists;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Lists\ListsUpdateRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Lists\ListsUpdateRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class ListsUpdateRequestTest extends \PHPUnit_Framework_TestCase
+class ListsUpdateRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Lists\ListsUpdateRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new ListsUpdateRequest();
+        parent::setUp();
+        $this->request = new ListsUpdateRequest($this->optionBagFactory);
     }
 
     /**

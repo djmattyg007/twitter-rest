@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesUserTimelineRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Statuses\StatusesUserTimelineRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class StatusesUserTimelineRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesUserTimelineRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\StatusesUserTimelineRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new StatusesUserTimelineRequest();
+        parent::setUp();
+        $this->request = new StatusesUserTimelineRequest($this->optionBagFactory);
     }
 
     /**

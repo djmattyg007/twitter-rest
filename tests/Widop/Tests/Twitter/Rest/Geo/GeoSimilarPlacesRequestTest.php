@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Geo;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Geo\GeoSimilarPlacesRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Geo\GeoSimilarPlacesRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class GeoSimilarPlacesRequestTest extends \PHPUnit_Framework_TestCase
+class GeoSimilarPlacesRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Geo\GeoSimilarPlacesRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new GeoSimilarPlacesRequest('10.10', '-12.45', 'Twitter HQ');
+        parent::setUp();
+        $this->request = new GeoSimilarPlacesRequest($this->optionBagFactory, '10.10', '-12.45', 'Twitter HQ');
     }
 
     /**

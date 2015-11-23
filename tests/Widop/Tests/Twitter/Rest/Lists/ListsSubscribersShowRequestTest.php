@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Lists;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Lists\ListsSubscribersShowRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Lists\ListsSubscribersShowRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class ListsSubscribersShowShowRequestTest extends \PHPUnit_Framework_TestCase
+class ListsSubscribersShowShowRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Lists\ListsSubscribersShowRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new ListsSubscribersShowRequest();
+        parent::setUp();
+        $this->request = new ListsSubscribersShowRequest($this->optionBagFactory);
     }
 
     /**

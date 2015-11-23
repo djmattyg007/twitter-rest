@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Favorites;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Favorites\FavoritesListRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Favorites\FavoritesListRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FavoritesListRequestTest extends \PHPUnit_Framework_TestCase
+class FavoritesListRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Favorites\FavoritesListRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FavoritesListRequest();
+        parent::setUp();
+        $this->request = new FavoritesListRequest($this->optionBagFactory);
     }
 
     /**

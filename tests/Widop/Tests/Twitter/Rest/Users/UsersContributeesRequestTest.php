@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Users;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Users\UsersContributeesRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Users\UsersContributeesRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class UsersContributeesRequestTest extends \PHPUnit_Framework_TestCase
+class UsersContributeesRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Users\UsersContributeesRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new UsersContributeesRequest();
+        parent::setUp();
+        $this->request = new UsersContributeesRequest($this->optionBagFactory);
     }
 
     /**

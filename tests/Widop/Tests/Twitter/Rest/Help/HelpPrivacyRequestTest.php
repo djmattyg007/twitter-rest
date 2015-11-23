@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Help;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Help\HelpPrivacyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Help\HelpPrivacyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class HelpPrivacyRequestTest extends \PHPUnit_Framework_TestCase
+class HelpPrivacyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Help\HelpPrivacyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new HelpPrivacyRequest();
+        parent::setUp();
+        $this->request = new HelpPrivacyRequest($this->optionBagFactory);
     }
 
     /**

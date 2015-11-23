@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountSettingsGetRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountSettingsGetRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountSettingsGetRequestTest extends \PHPUnit_Framework_TestCase
+class AccountSettingsGetRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountSettingsGetRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountSettingsGetRequest();
+        parent::setUp();
+        $this->request = new AccountSettingsGetRequest($this->optionBagFactory);
     }
 
     /**

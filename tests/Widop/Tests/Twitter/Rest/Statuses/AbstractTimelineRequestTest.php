@@ -11,22 +11,25 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
+
 /**
  * Abstract timeline request test.
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AbstractTimelineRequestTest extends \PHPUnit_Framework_TestCase
+class AbstractTimelineRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\AbstractTimelineRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = $this->getMockForAbstractClass('Widop\Twitter\Rest\Statuses\AbstractTimelineRequest');
+        parent::setUp();
+        $this->request = $this->getMockBuilder('Widop\Twitter\Rest\Statuses\AbstractTimelineRequest')
+            ->setMethods(array('__construct'))
+            ->setConstructorArgs(array($this->optionBagFactory))
+            ->getMockForAbstractClass('Widop\Twitter\Rest\Statuses\AbstractTimelineRequest');
     }
 
     /**

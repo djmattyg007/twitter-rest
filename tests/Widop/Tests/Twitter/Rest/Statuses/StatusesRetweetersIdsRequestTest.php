@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesRetweetersIdsRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Statuses\StatusesRetweetersIdsRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class StatusesRetweetersIdsRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesRetweetersIdsRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\StatusesRetweetRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new StatusesRetweetersIdsRequest('123');
+        parent::setUp();
+        $this->request = new StatusesRetweetersIdsRequest($this->optionBagFactory, '123');
     }
 
     /**

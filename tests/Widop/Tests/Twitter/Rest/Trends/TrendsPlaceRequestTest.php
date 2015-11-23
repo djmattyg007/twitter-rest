@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Trends;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Trends\TrendsPlaceRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Trends\TrendsPlaceRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class TrendsPlaceRequestTest extends \PHPUnit_Framework_TestCase
+class TrendsPlaceRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Trends\TrendsPlaceRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new TrendsPlaceRequest('123');
+        parent::setUp();
+        $this->request = new TrendsPlaceRequest($this->optionBagFactory, '123');
     }
 
     /**

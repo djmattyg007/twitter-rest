@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Lists;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Lists\ListsMembersDestroyAllRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Lists\ListsMembersDestroyAllRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class ListsMembersDestroyAllRequestTest extends \PHPUnit_Framework_TestCase
+class ListsMembersDestroyAllRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Lists\ListsMembersDestroyAllRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new ListsMembersDestroyAllRequest();
+        parent::setUp();
+        $this->request = new ListsMembersDestroyAllRequest($this->optionBagFactory);
     }
 
     /**

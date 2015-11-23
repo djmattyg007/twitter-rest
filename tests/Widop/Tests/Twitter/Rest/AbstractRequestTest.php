@@ -18,17 +18,18 @@ use Widop\Twitter\Rest\Statuses\StatusesShowRequest;
  *
  * @author GeLo <geloen.eric@gmail.com>
  */
-class AbstractRequestTest extends \PHPUnit_Framework_TestCase
+class AbstractRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\AbstractRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = $this->getMockForAbstractClass('Widop\Twitter\Rest\AbstractRequest');
+        parent::setUp();
+        $this->request = $this->getMockBuilder('Widop\Twitter\Rest\AbstractRequest')
+            ->setMethods(array('__construct'))
+            ->setConstructorArgs(array($this->optionBagFactory))
+            ->getMockForAbstractClass('Widop\Twitter\Rest\AbstractRequest');
     }
 
     /**
@@ -54,7 +55,7 @@ class AbstractRequestTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidOption()
     {
-        $this->request = new StatusesShowRequest('123');
+        $this->request = new StatusesShowRequest($this->optionBagFactory, '123');
         $this->request->setId();
     }
 }

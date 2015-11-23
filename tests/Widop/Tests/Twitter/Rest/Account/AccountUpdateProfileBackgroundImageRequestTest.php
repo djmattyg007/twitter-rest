@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileBackgroundImageRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountUpdateProfileBackgroundImageRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountUpdateProfileBackgroundImageRequestTest extends \PHPUnit_Framework_TestCase
+class AccountUpdateProfileBackgroundImageRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountUpdateProfileBackgroundImageRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountUpdateProfileBackgroundImageRequest();
+        parent::setUp();
+        $this->request = new AccountUpdateProfileBackgroundImageRequest($this->optionBagFactory);
     }
 
     /**

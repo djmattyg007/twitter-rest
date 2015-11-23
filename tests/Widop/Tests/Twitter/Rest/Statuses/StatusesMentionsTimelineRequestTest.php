@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesMentionsTimelineRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Statuses\StatusesMentionsTimelineRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class StatusesMentionsTimelineRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesMentionsTimelineRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\StatusesMentionsTimelineRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new StatusesMentionsTimelineRequest();
+        parent::setUp();
+        $this->request = new StatusesMentionsTimelineRequest($this->optionBagFactory);
     }
 
     /**

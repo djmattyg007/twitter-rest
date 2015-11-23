@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Help;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Help\HelpConfigurationRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Help\HelpConfigurationRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class HelpConfigurationRequestTest extends \PHPUnit_Framework_TestCase
+class HelpConfigurationRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Help\HelpConfigurationRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new HelpConfigurationRequest();
+        parent::setUp();
+        $this->request = new HelpConfigurationRequest($this->optionBagFactory);
     }
 
     /**

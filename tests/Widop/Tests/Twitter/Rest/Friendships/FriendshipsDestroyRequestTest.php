@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Friendships;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Friendships\FriendshipsDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Friendships\FriendshipsDestroyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FriendshipsDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class FriendshipsDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Friendships\FriendshipsDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FriendshipsDestroyRequest();
+        parent::setUp();
+        $this->request = new FriendshipsDestroyRequest($this->optionBagFactory);
     }
 
     /**

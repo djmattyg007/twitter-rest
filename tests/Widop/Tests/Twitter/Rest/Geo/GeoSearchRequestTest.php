@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Geo;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Geo\GeoSearchRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Geo\GeoSearchRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class GeoSearchRequestTest extends \PHPUnit_Framework_TestCase
+class GeoSearchRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Geo\GeoSearchRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new GeoSearchRequest();
+        parent::setUp();
+        $this->request = new GeoSearchRequest($this->optionBagFactory);
     }
 
     /**

@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Trends;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Trends\TrendsAvailableRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Trends\TrendsAvailableRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class TrendsAvailableRequestTest extends \PHPUnit_Framework_TestCase
+class TrendsAvailableRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Trends\TrendsAvailableRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new TrendsAvailableRequest();
+        parent::setUp();
+        $this->request = new TrendsAvailableRequest($this->optionBagFactory);
     }
 
     /**

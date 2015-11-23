@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Favorites;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Favorites\FavoritesDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Favorites\FavoritesDestroyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FavoritesDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class FavoritesDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Favorites\FavoritesDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FavoritesDestroyRequest('123');
+        parent::setUp();
+        $this->request = new FavoritesDestroyRequest($this->optionBagFactory, '123');
     }
 
     /**

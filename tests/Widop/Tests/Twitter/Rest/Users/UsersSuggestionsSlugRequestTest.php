@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Users;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Users\UsersSuggestionsSlugRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Users\UsersSuggestionsSlugRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class UsersSuggestionsSlugRequestTest extends \PHPUnit_Framework_TestCase
+class UsersSuggestionsSlugRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Users\UsersSuggestionsSlugRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new UsersSuggestionsSlugRequest('twitter');
+        parent::setUp();
+        $this->request = new UsersSuggestionsSlugRequest($this->optionBagFactory, 'twitter');
     }
 
     /**

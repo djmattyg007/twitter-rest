@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\SavedSearches;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\SavedSearches\SavedSearchesDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\SavedSearches\SavedSearchesDestroyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class SavedSearchesDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class SavedSearchesDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\SavedSearches\SavedSearchesDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new SavedSearchesDestroyRequest('123');
+        parent::setUp();
+        $this->request = new SavedSearchesDestroyRequest($this->optionBagFactory, '123');
     }
 
     /**

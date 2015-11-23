@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Users;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Users\UsersLookupRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Users\UsersLookupRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class UsersLookupRequestTest extends \PHPUnit_Framework_TestCase
+class UsersLookupRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Users\UsersLookupRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new UsersLookupRequest();
+        parent::setUp();
+        $this->request = new UsersLookupRequest($this->optionBagFactory);
     }
 
     /**

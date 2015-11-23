@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Blocks;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Blocks\BlocksDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Blocks\BlocksDestroyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class BlocksDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class BlocksDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Blocks\BlocksDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new BlocksDestroyRequest();
+        parent::setUp();
+        $this->request = new BlocksDestroyRequest($this->optionBagFactory);
     }
 
     /**

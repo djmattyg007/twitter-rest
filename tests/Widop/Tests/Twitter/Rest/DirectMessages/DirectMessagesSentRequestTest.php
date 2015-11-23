@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\DirectMessages;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesSentRequest;
 
 /**
@@ -20,17 +21,15 @@ use Widop\Twitter\Rest\DirectMessages\DirectMessagesSentRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class DirectMessagesSentRequestTest extends \PHPUnit_Framework_TestCase
+class DirectMessagesSentRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\DirectMessages\DirectMessagesSentRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new DirectMessagesSentRequest();
+        parent::setUp();
+        $this->request = new DirectMessagesSentRequest($this->optionBagFactory);
     }
 
     /**

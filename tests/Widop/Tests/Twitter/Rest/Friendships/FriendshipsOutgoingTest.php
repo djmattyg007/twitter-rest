@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Friendships;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Friendships\FriendshipsOutgoingRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Friendships\FriendshipsOutgoingRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FriendshipsOutgoingRequestTest extends \PHPUnit_Framework_TestCase
+class FriendshipsOutgoingRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Friendships\FriendshipsOutgoingRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FriendshipsOutgoingRequest();
+        parent::setUp();
+        $this->request = new FriendshipsOutgoingRequest($this->optionBagFactory);
     }
 
     /**

@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Geo;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Geo\GeoIdPlaceIdRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Geo\GeoIdPlaceIdRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class GeoIdPlaceIdRequestTest extends \PHPUnit_Framework_TestCase
+class GeoIdPlaceIdRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Geo\GeoIdPlaceIdRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new GeoIdPlaceIdRequest('foo');
+        parent::setUp();
+        $this->request = new GeoIdPlaceIdRequest($this->optionBagFactory, 'foo');
     }
 
     /**

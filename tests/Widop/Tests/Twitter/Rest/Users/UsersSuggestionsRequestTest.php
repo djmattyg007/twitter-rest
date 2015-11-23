@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Users;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Users\UsersSuggestionsRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Users\UsersSuggestionsRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class UsersSuggestionsRequestTest extends \PHPUnit_Framework_TestCase
+class UsersSuggestionsRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Users\UsersSuggestionsRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new UsersSuggestionsRequest();
+        parent::setUp();
+        $this->request = new UsersSuggestionsRequest($this->optionBagFactory);
     }
 
     /**

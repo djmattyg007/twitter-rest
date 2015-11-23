@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountRemoveProfileBannerRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountRemoveProfileBannerRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountRemoveProfileBannerRequestTest extends \PHPUnit_Framework_TestCase
+class AccountRemoveProfileBannerRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountRemoveProfileBannerRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountRemoveProfileBannerRequest();
+        parent::setUp();
+        $this->request = new AccountRemoveProfileBannerRequest($this->optionBagFactory);
     }
 
     /**

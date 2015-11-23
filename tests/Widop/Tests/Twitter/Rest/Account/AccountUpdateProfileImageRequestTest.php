@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileImageRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountUpdateProfileImageRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountUpdateProfileImageRequestTest extends \PHPUnit_Framework_TestCase
+class AccountUpdateProfileImageRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountUpdateProfileImageRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountUpdateProfileImageRequest();
+        parent::setUp();
+        $this->request = new AccountUpdateProfileImageRequest($this->optionBagFactory);
     }
 
     /**

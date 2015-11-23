@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountVerifyCredentialsRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountVerifyCredentialsRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountVerifyCredentialsRequestTest extends \PHPUnit_Framework_TestCase
+class AccountVerifyCredentialsRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountVerifyCredentialsRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountVerifyCredentialsRequest();
+        parent::setUp();
+        $this->request = new AccountVerifyCredentialsRequest($this->optionBagFactory);
     }
 
     /**

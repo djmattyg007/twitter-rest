@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesShowRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Statuses\StatusesShowRequest;
  *
  * @author GeLo <geloen.eric@gmail.com>
  */
-class StatusesShowRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesShowRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\StatusesShowRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new StatusesShowRequest('123');
+        parent::setUp();
+        $this->request = new StatusesShowRequest($this->optionBagFactory, '123');
     }
 
     /**

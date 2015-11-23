@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Lists;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Lists\ListsMembersCreateAllRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Lists\ListsMembersCreateAllRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class ListsMembersCreateAllRequestTest extends \PHPUnit_Framework_TestCase
+class ListsMembersCreateAllRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Lists\ListsMembersCreateAllRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new ListsMembersCreateAllRequest();
+        parent::setUp();
+        $this->request = new ListsMembersCreateAllRequest($this->optionBagFactory);
     }
 
     /**

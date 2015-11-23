@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesUpdateRequest;
 
 /**
@@ -18,7 +19,7 @@ use Widop\Twitter\Rest\Statuses\StatusesUpdateRequest;
  *
  * @author GeLo <geloen.eric@gmail.com>
  */
-class StatusesUpdateRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesUpdateRequestTest extends AbstractRequestTestCase
 {
     /** @var \Widop\Twitter\Rest\Statuses\StatusesUpdateRequest */
     protected $request;
@@ -28,7 +29,8 @@ class StatusesUpdateRequestTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->request = new StatusesUpdateRequest('My New Status!');
+        parent::setUp();
+        $this->request = new StatusesUpdateRequest($this->optionBagFactory, 'My New Status!');
     }
 
     /**

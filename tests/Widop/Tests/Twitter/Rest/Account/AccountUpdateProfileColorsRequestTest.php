@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileColorsRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountUpdateProfileColorsRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountUpdateProfileColorsRequestTest extends \PHPUnit_Framework_TestCase
+class AccountUpdateProfileColorsRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountUpdateProfileColorsRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountUpdateProfileColorsRequest();
+        parent::setUp();
+        $this->request = new AccountUpdateProfileColorsRequest($this->optionBagFactory);
     }
 
     /**

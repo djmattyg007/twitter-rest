@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileBannerRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountUpdateProfileBannerRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountUpdateProfileBannerRequestTest extends \PHPUnit_Framework_TestCase
+class AccountUpdateProfileBannerRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountUpdateProfileBannerRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountUpdateProfileBannerRequest();
+        parent::setUp();
+        $this->request = new AccountUpdateProfileBannerRequest($this->optionBagFactory);
     }
 
     /**

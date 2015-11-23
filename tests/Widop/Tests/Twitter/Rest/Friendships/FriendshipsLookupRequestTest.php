@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Friendships;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Friendships\FriendshipsLookupRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Friendships\FriendshipsLookupRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FriendshipsLookupRequestTest extends \PHPUnit_Framework_TestCase
+class FriendshipsLookupRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Friendships\FriendshipsLookupRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FriendshipsLookupRequest();
+        parent::setUp();
+        $this->request = new FriendshipsLookupRequest($this->optionBagFactory);
     }
 
     /**

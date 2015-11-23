@@ -12,6 +12,7 @@
 namespace Widop\Tests\Twitter\Rest;
 
 use Widop\Twitter\Rest\Twitter;
+use Widop\Twitter\Options\OptionBagFactory;
 
 /**
  * Twitter test.
@@ -131,7 +132,8 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($response));
 
         $request = $this->getMockBuilder('Widop\Twitter\Rest\AbstractRequest')
-            ->setMethods(array('createOAuthRequest'))
+            ->setMethods(array('__construct', 'createOAuthRequest'))
+            ->setConstructorArgs(array(new OptionBagFactory))
             ->getMockForAbstractClass();
 
         $request
@@ -150,7 +152,10 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
      */
     public function testSendWithoutToken()
     {
-        $request = $this->getMockBuilder('Widop\Twitter\Rest\AbstractRequest')->getMockForAbstractClass();
+        $request = $this->getMockBuilder('Widop\Twitter\Rest\AbstractRequest')
+            ->setMethods(array('__construct'))
+            ->setConstructorArgs(array(new OptionBagFactory))
+            ->getMockForAbstractClass();
 
         $this->twitter->send($request);
     }

@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Blocks;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Blocks\BlocksCreateRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Blocks\BlocksCreateRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class BlocksCreateRequestTest extends \PHPUnit_Framework_TestCase
+class BlocksCreateRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Blocks\BlocksCreateRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new BlocksCreateRequest();
+        parent::setUp();
+        $this->request = new BlocksCreateRequest($this->optionBagFactory);
     }
 
     /**

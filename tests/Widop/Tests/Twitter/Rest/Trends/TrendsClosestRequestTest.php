@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Trends;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Trends\TrendsClosestRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Trends\TrendsClosestRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class TrendsClosestRequestTest extends \PHPUnit_Framework_TestCase
+class TrendsClosestRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Trends\TrendsClosestRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new TrendsClosestRequest('122.321', '-122.456');
+        parent::setUp();
+        $this->request = new TrendsClosestRequest($this->optionBagFactory, '122.321', '-122.456');
     }
 
     /**

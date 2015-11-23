@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Favorites;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Favorites\FavoritesCreateRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Favorites\FavoritesCreateRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FavoritesCreateRequestTest extends \PHPUnit_Framework_TestCase
+class FavoritesCreateRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Favorites\FavoritesCreateRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FavoritesCreateRequest('123');
+        parent::setUp();
+        $this->request = new FavoritesCreateRequest($this->optionBagFactory, '123');
     }
 
     /**

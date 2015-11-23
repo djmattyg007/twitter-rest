@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Account;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Account\AccountUpdateDeliveryDeviceRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Account\AccountUpdateDeliveryDeviceRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class AccountUpdateDeliveryDeviceRequestTest extends \PHPUnit_Framework_TestCase
+class AccountUpdateDeliveryDeviceRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Account\AccountUpdateDeliveryDeviceRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new AccountUpdateDeliveryDeviceRequest();
+        parent::setUp();
+        $this->request = new AccountUpdateDeliveryDeviceRequest($this->optionBagFactory);
     }
 
     /**

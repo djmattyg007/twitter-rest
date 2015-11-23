@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\SavedSearches;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\SavedSearches\SavedSearchesCreateRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\SavedSearches\SavedSearchesCreateRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class SavedSearchesCreateRequestTest extends \PHPUnit_Framework_TestCase
+class SavedSearchesCreateRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\SavedSearches\SavedSearchesCreateRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new SavedSearchesCreateRequest('sandwiches');
+        parent::setUp();
+        $this->request = new SavedSearchesCreateRequest($this->optionBagFactory, 'sandwiches');
     }
 
     /**

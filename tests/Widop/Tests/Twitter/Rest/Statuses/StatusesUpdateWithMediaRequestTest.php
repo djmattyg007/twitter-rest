@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesUpdateWithMediaRequest;
 
 /**
@@ -20,12 +21,10 @@ use Widop\Twitter\Rest\Statuses\StatusesUpdateWithMediaRequest;
  */
 class StatusesUpdateWithMediaRequestTest extends StatusesUpdateRequestTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp()
     {
-        $this->request = new StatusesUpdateWithMediaRequest('My New Status!', __FILE__);
+        AbstractRequestTestCase::setUp();
+        $this->request = new StatusesUpdateWithMediaRequest($this->optionBagFactory, 'My New Status!', __FILE__);
     }
 
     public function testDefaultState()

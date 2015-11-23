@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\DirectMessages;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\DirectMessages\DirectMessagesDestroyRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class DirectMessagesDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class DirectMessagesDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\DirectMessages\DirectMessagesDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new DirectMessagesDestroyRequest('123');
+        parent::setUp();
+        $this->request = new DirectMessagesDestroyRequest($this->optionBagFactory, '123');
     }
 
     /**

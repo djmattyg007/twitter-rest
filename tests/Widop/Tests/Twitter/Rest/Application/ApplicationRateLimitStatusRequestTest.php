@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Application;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Application\ApplicationRateLimitStatusRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Application\ApplicationRateLimitStatusRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class ApplicationRateLimitStatusRequestTest extends \PHPUnit_Framework_TestCase
+class ApplicationRateLimitStatusRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Application\ApplicationRateLimitStatusRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new ApplicationRateLimitStatusRequest();
+        parent::setUp();
+        $this->request = new ApplicationRateLimitStatusRequest($this->optionBagFactory);
     }
 
     /**

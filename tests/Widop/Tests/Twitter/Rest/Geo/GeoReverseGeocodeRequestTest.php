@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Geo;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Geo\GeoReverseGeocodeRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Geo\GeoReverseGeocodeRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class GeoReverseGeocodeRequestTest extends \PHPUnit_Framework_TestCase
+class GeoReverseGeocodeRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Geo\GeoReverseGeocodeRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new GeoReverseGeocodeRequest('10.10', '-12.45');
+        parent::setUp();
+        $this->request = new GeoReverseGeocodeRequest($this->optionBagFactory, '10.10', '-12.45');
     }
 
     /**

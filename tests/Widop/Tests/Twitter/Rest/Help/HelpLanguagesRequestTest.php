@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Help;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Help\HelpLanguagesRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Help\HelpLanguagesRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class HelpLanguagesRequestTest extends \PHPUnit_Framework_TestCase
+class HelpLanguagesRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Help\HelpLanguagesRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new HelpLanguagesRequest();
+        parent::setUp();
+        $this->request = new HelpLanguagesRequest($this->optionBagFactory);
     }
 
     /**

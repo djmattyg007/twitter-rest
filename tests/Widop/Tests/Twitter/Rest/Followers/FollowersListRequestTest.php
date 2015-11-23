@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Followers;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Followers\FollowersListRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Followers\FollowersListRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class FollowersListRequestTest extends \PHPUnit_Framework_TestCase
+class FollowersListRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Followers\FollowersListRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new FollowersListRequest();
+        parent::setUp();
+        $this->request = new FollowersListRequest($this->optionBagFactory);
     }
 
     /**

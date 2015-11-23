@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Search;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Search\SearchTweetsRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Search\SearchTweetsRequest;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class SearchTweetsRequestTest extends \PHPUnit_Framework_TestCase
+class SearchTweetsRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Search\SearchTweetsRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new SearchTweetsRequest('@noradio');
+        parent::setUp();
+        $this->request = new SearchTweetsRequest($this->optionBagFactory, '@noradio');
     }
 
     /**

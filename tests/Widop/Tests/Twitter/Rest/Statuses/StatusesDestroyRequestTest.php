@@ -11,6 +11,7 @@
 
 namespace Widop\Tests\Twitter\Rest\Statuses;
 
+use Widop\Tests\Twitter\Rest\AbstractRequestTestCase;
 use Widop\Twitter\Rest\Statuses\StatusesDestroyRequest;
 
 /**
@@ -18,17 +19,15 @@ use Widop\Twitter\Rest\Statuses\StatusesDestroyRequest;
  *
  * @author GeLo <geloen.eric@gmail.com>
  */
-class StatusesDestroyRequestTest extends \PHPUnit_Framework_TestCase
+class StatusesDestroyRequestTest extends AbstractRequestTestCase
 {
-    /** @var \Widop\Twitter\Rest\Statuses\StatusesDestroyRequest */
-    private $request;
-
     /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
-        $this->request = new StatusesDestroyRequest('123');
+        parent::setUp();
+        $this->request = new StatusesDestroyRequest($this->optionBagFactory, '123');
     }
 
     /**
