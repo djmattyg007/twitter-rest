@@ -3,9 +3,10 @@
 Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsOutgoingRequest;
 
-$request = new FriendshipsOutgoingRequest();
+$request = new FriendshipsOutgoingRequest(new OptionBagFactory());
 
 $request->setCursor('123465879');
 $cursor = $request->getCursor();

@@ -3,9 +3,10 @@
 Returns a single direct message, specified by an id parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesShowRequest;
 
-$request = new DirectMessagesShowRequest('123456789');
+$request = new DirectMessagesShowRequest(new OptionBagFactory(), '123456789');
 
 $request->setId('123456789');
 $messageId = $request->getId();

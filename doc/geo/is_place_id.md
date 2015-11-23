@@ -3,9 +3,10 @@
 Returns all the information about a known place.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Geo\GeoIdPlaceIdRequest;
 
-$request = new GeoIdPlaceIdRequest('123456789');
+$request = new GeoIdPlaceIdRequest(new OptionBagFactory(), '123456789');
 
 $request->setPlaceId('123546789');
 $userId = $request->getPlaceId();

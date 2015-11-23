@@ -3,9 +3,10 @@
 Updates the authenticating user's current status, also known as tweeting with a media.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesUpdateWithMediaRequest;
 
-$request = new StatusesUpdateWithMediaRequest('Yeah, I\'m currently updating my status!', '/path/to/my/media.jpg');
+$request = new StatusesUpdateWithMediaRequest(new OptionBagFactory(), 'Yeah, I\'m currently updating my status!', '/path/to/my/media.jpg');
 
 $request->setStatus('Yeah, I\'m currently updating my status!');
 $status = $request->getStatus();

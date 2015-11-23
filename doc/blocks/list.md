@@ -3,9 +3,10 @@
 Returns a collection of user objects that the authenticating user is blocking.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Blocks\BlocksListRequest;
 
-$request = new BlocksListRequest();
+$request = new BlocksListRequest(new OptionBagFactory());
 
 $request->setIncludeEntities(true);
 $includeEntities = $request->getIncludeEntities();

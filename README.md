@@ -9,6 +9,7 @@ In order to sign your request with the OAuth protocol, the library internally us
 ``` php
 use Widop\HttpAdapter\CurlHttpAdapter;
 use Widop\Twitter\OAuth;
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesUpdateRequest;
 use Widop\Twitter\Rest\Twitter;
 
@@ -26,7 +27,7 @@ $token = new OAuth\OAuthToken('oauth_key', 'oauth_secret');
 $twitter = new Twitter($oauth, $token);
 
 // Then, send a request to the Twitter API!
-$request = new StatusesUpdateRequest('Yeah, I\'m currently updating my status!')
+$request = new StatusesUpdateRequest(new OptionBagFactory(), 'Yeah, I\'m currently updating my status!')
 $tweet = $twitter->send($request)->getData();
 ```
 

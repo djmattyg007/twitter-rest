@@ -3,9 +3,10 @@
 Locates places near the given coordinates which are similar in name.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Geo\GeoSimilarPlacesRequest;
 
-$request = new GeoSimilarPlacesRequest('37.78', '-122.40', 'Twitter HQ');
+$request = new GeoSimilarPlacesRequest(new OptionBagFactory(), '37.78', '-122.40', 'Twitter HQ');
 
 $request->setLat('37.78');
 $latitude = $request->getLat();

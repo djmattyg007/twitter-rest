@@ -3,9 +3,10 @@
 Returns an array of numeric user ids the authenticating user is blocking.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Blocks\BlocksIdsRequest;
 
-$request = new BlocksIdsRequest();
+$request = new BlocksIdsRequest(new OptionBagFactory());
 
 $request->setStringifyIds(true);
 $stringifyIds = $request->getStringifyIds();

@@ -3,9 +3,10 @@
 Destroys the direct message specified in the required ID parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesDestroyRequest;
 
-$request = new DirectMessagesDestroyRequest('123456879');
+$request = new DirectMessagesDestroyRequest(new OptionBagFactory(), '123456879');
 
 $request->setId('123456789');
 $messageId = $request->getId();

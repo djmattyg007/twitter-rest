@@ -4,9 +4,10 @@ Un-blocks the user specified in the ID parameter for the authenticating user. Re
 requested format when successful. If relationships existed before the block was instated, they will not be restored.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Blocks\BlocksDestroyRequest;
 
-$request = new BlocksDestroyRequest();
+$request = new BlocksDestroyRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

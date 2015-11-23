@@ -3,9 +3,10 @@
 Retweets a tweet. Returns the original tweet with retweet details embedded.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesRetweetRequest;
 
-$request = new StatusesRetweetRequest('123');
+$request = new StatusesRetweetRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

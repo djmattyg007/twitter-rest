@@ -56,4 +56,4 @@ use Widop\Twitter\Rest;
 ```
 
 The Wid'op Twitter library follows the [PSR-0 Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md).
-If you prefer install it manually, it can be autoload by any convenient autoloader.
+If you prefer to install it manually, it can be autoloaded by any PSR-0 compatible autoloader.

@@ -6,9 +6,10 @@ also the owner of the lists.
 A user id or screen name MUST be provided.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsOwnershipsRequest;
 
-$request = new ListsOwnershipsRequest();
+$request = new ListsOwnershipsRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

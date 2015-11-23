@@ -4,9 +4,10 @@ Retrieve the information for the saved search represented by the given id.
 The authenticating user must be the owner of saved search ID being requested.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\SavedSearches\SavedSearchesShowRequest;
 
-$request = new SavedSearchesShowRequest('123');
+$request = new SavedSearchesShowRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

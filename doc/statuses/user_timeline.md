@@ -7,9 +7,10 @@ You MUST also provide either a user id or a screen name. If both screen name and
 user id is prefered and used.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesUserTimelineRequest;
 
-$request = new StatusesUserTimelineRequest();
+$request = new StatusesUserTimelineRequest(new OptionBagFactory());
 
 $request->setUserId('123465789');
 $userId = $request->getUserId();

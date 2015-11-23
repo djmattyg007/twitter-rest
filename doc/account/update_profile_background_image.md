@@ -7,9 +7,10 @@ Although each parameter is marked as optional, at least one of image, tile or us
 request.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileBackgroundImageRequest;
 
-$request = new AccountUpdateProfileBackgroundImageRequest();
+$request = new AccountUpdateProfileBackgroundImageRequest(new OptionBagFactory());
 
 $request->setImage('SGVsbG8...gd29ybGQ=');
 $banner = $request->getImage();

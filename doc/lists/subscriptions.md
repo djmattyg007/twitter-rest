@@ -6,9 +6,10 @@ the user's own lists.
 If no user id or screen name are provided, the results of the authenticated user will be returned.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsSubscriptionsRequest;
 
-$request = new ListsSubscriptionsRequest();
+$request = new ListsSubscriptionsRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

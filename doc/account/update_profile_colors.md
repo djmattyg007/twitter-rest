@@ -5,9 +5,10 @@ Each parameter's value must be a valid hexidecimal value, and may be either thre
 (ex: #fff or #ffffff).
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileColorsRequest;
 
-$request = new AccountUpdateProfileColorsRequest();
+$request = new AccountUpdateProfileColorsRequest(new OptionBagFactory());
 
 $request->setProfileBackgroundColor('3D3D3D');
 $color = $request->setProfileBackgroundColoretProfileBackgroundColor();

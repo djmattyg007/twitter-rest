@@ -6,9 +6,10 @@ Returns the unfollowed user in the requested format when successful.
 May throw exceptions in case of failure.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsDestroyRequest;
 
-$request = new FriendshipsDestroyRequest();
+$request = new FriendshipsDestroyRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

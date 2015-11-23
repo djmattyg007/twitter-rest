@@ -4,9 +4,10 @@ Returns the lists the specified user has been added to. If user_id or screen_nam
 the authenticating user are returned.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsMembershipsRequest;
 
-$request = new ListsMembershipsRequest();
+$request = new ListsMembershipsRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

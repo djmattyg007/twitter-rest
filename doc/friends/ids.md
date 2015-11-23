@@ -3,9 +3,10 @@
 Returns a cursored collection of user IDs for every user the specified user is following.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friends\FriendsIdsRequest;
 
-$request = new FriendsIdsRequest();
+$request = new FriendsIdsRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

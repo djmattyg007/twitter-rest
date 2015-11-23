@@ -11,9 +11,10 @@ NB: While the twitter REST API allows GET and POST request on this endpoint, onl
 twitter encourage it.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Users\UsersLookupRequest;
 
-$request = new UsersLookupRequest();
+$request = new UsersLookupRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

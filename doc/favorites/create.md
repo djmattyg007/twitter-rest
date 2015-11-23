@@ -4,9 +4,10 @@ Favorites the status specified in the ID parameter as the authenticating user.
 Returns the favorite status when successful.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Favorites\FavoritesCreateRequest;
 
-$request = new FavoritesCreateRequest('123');
+$request = new FavoritesCreateRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

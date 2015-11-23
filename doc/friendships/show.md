@@ -3,9 +3,10 @@
 Returns detailed information about the relationship between two arbitrary users.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsShowRequest;
 
-$request = new FriendshipsShowRequest();
+$request = new FriendshipsShowRequest(new OptionBagFactory());
 
 $request->setSourceId('123546789');
 $sourceId = $request->getSourceId();

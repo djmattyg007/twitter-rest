@@ -3,9 +3,10 @@
 Returns a collection of users that the specified user can "contribute" to.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Users\UsersContributeesRequest;
 
-$request = new UsersContributeesRequest();
+$request = new UsersContributeesRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

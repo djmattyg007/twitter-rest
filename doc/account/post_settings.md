@@ -3,9 +3,10 @@
 Updates the authenticating user's settings.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountSettingsPostRequest;
 
-$request = new AccountSettingsPostRequest();
+$request = new AccountSettingsPostRequest(new OptionBagFactory());
 
 $request->setTrendLocationWoeid('123');
 $woeid = $request->getTrendLocationWoeid();

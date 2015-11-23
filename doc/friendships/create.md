@@ -6,9 +6,10 @@ Returns the befriended user in the requested format when successful.
 May throw exceptions in case of failure.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsCreateRequest;
 
-$request = new FriendshipsCreateRequest();
+$request = new FriendshipsCreateRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

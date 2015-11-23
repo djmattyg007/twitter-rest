@@ -5,9 +5,10 @@ Returns the most recent tweets authored by the authenticating user that have bee
 If no count is provided, the request will return 20 tweets.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesRetweetsOfMeRequest;
 
-$request = new StatusesRetweetsOfMeRequest();
+$request = new StatusesRetweetsOfMeRequest(new OptionBagFactory());
 
 $request->setCount(50);
 $count = $request->getCount();

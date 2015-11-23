@@ -17,9 +17,10 @@ families you work with.
 When using app-only auth, this method's response indicates the app-only auth rate limiting context.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Application\ApplicationRateLimitStatusRequest;
 
-$request = new ApplicationRateLimitStatusRequest();
+$request = new ApplicationRateLimitStatusRequest(new OptionBagFactory());
 
 $request->setResources('friends,statuses');
 $resources = $request->getResources();

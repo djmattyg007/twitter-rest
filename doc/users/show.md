@@ -6,9 +6,10 @@ most recent Tweet will be returned inline when possible.
 NB: [`users/lookup`](lookup.md) is used to retrieve a bulk collection of user objects.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Users\UsersShowRequest;
 
-$request = new UsersShowRequest();
+$request = new UsersShowRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

@@ -6,9 +6,10 @@ If you do not provide either a user_id or screen_name to this method, it will as
 Specify one or the other for best results.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Favorites\FavoritesListRequest;
 
-$request = new FavoritesListRequest();
+$request = new FavoritesListRequest(new OptionBagFactory());
 
 $request->setUserId('123465789');
 $userId = $request->getUserId();

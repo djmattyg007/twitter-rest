@@ -35,9 +35,10 @@ Here, a simple example where we will destroy the tweet "123":
 
 ``` php
 use Widop\Twitter\OAuth\OAuthException,
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesDestroyRequest;
 
-$request = new StatusesDestroyRequest('123');
+$request = new StatusesDestroyRequest(new OptionBagFactory, '123');
 
 try {
     $response = $twitter->send($request);

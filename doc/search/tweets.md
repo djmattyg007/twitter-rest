@@ -6,9 +6,10 @@ Note that Twitter's search service and, by extension, the Search API is not mean
 Not all Tweets will be indexed or made available via the search interface.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Search\SearchTweetsRequest;
 
-$request = new SearchTweetsRequest('@noradio');
+$request = new SearchTweetsRequest(new OptionBagFactory(), '@noradio');
 
 $request->setQuery('@noradio');
 $query = $request->getQuery();

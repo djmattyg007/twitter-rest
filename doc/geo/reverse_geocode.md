@@ -3,9 +3,10 @@
 Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Geo\GeoReverseGeocodeRequest;
 
-$request = new GeoReverseGeocodeRequest('37.78', '-122.40');
+$request = new GeoReverseGeocodeRequest(new OptionBagFactory(), '37.78', '-122.40');
 
 $request->setLat('37.78');
 $latitude = $request->getLat();

@@ -7,9 +7,10 @@ You MUST set either the list id or slug. If the list slug is set, then you MUST 
 or id.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsStatusesRequest;
 
-$request = new ListsStatusesRequest();
+$request = new ListsStatusesRequest(new OptionBagFactory());
 
 $request->setOwnerScreenName('noradio');
 $ownerScreenName = $request->getOwnerScreenName();

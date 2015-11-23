@@ -3,9 +3,10 @@
 Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesRetweetersIdsRequest;
 
-$request = new StatusesRetweetersIdsRequest('123');
+$request = new StatusesRetweetersIdsRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

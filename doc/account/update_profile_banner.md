@@ -8,9 +8,10 @@ Profile banner images are processed asynchronously. The profile_banner_url and i
 available directly after upload.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileBannerRequest;
 
-$request = new AccountUpdateProfileBannerRequest();
+$request = new AccountUpdateProfileBannerRequest(new OptionBagFactory());
 
 $request->setBanner('SGVsbG8...gd29ybGQ=');
 $banner = $request->getBanner();

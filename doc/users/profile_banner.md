@@ -7,9 +7,10 @@ Images and Banners.
 The profile banner data available at each size variant's URL is in PNG format.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Users\UsersProfileBannerRequest;
 
-$request = new UsersProfileBannerRequest();
+$request = new UsersProfileBannerRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

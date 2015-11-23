@@ -3,9 +3,10 @@
 Returns the 20 most recent direct messages sent to the authenticating user.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesSentRequest;
 
-$request = new DirectMessagesSentRequest();
+$request = new DirectMessagesSentRequest(new OptionBagFactory());
 
 $request->setSinceId('132456789');
 $sinceId = $request->getSinceId();

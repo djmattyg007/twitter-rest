@@ -9,9 +9,10 @@ This information is cached for 5 minutes. Requesting more frequently than that w
 count against your rate limit usage.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Trends\TrendsPlaceRequest;
 
-$request = new TrendsPlaceRequest('142');
+$request = new TrendsPlaceRequest(new OptionBagFactory(), '142');
 
 $request->setId('42');
 $id = $this->getId();

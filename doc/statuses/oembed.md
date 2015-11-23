@@ -3,9 +3,10 @@
 Returns information allowing the creation of an embedded representation of a Tweet on third party sites.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesOembedRequest;
 
-$request = new StatusesOembedRequest('123', 'http://foo.com');
+$request = new StatusesOembedRequest(new OptionBagFactory(), '123', 'http://foo.com');
 
 $request->setId('123');
 $id = $request->getId();

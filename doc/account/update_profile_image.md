@@ -6,9 +6,10 @@ image.
 This method asynchronously processes the uploaded file before updating the user's profile image URL.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileImageRequest;
 
-$request = new AccountUpdateProfileImageRequest();
+$request = new AccountUpdateProfileImageRequest(new OptionBagFactory());
 
 $request->setImage('SGVsbG8...gd29ybGQ=');
 $banner = $request->getImage();

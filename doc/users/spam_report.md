@@ -4,9 +4,10 @@ Report the specified user as a spam account to Twitter.
 Additionally performs the equivalent of POST blocks/create on behalf of the authenticated user.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Users\UsersSpamReportRequest;
 
-$request = new UsersSpamReportRequest();
+$request = new UsersSpamReportRequest(new OptionBagFactory());
 
 $request->setUserId('132456789');
 $userId = $request->getUserid();

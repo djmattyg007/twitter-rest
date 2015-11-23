@@ -8,9 +8,10 @@ as a canonical name and country the location belongs in.
 A WOEID is a [Yahoo! Where On Earth ID](http://developer.yahoo.com/geo/geoplanet/).
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Trends\TrendsAvailableRequest;
 
-$trends = $twitter->send($new TrendsAvailableRequest());
+$trends = $twitter->send($new TrendsAvailableRequest(new OptionBagFactory()));
 ```
 
 You can get more informations [here](https://dev.twitter.com/docs/api/1.1/get/trends/available) and

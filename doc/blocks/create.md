@@ -5,9 +5,10 @@ authenticating users mentions or timeline (unless retweeted by another user). If
 it is destroyed.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Blocks\BlocksCreateRequest;
 
-$request = new BlocksCreateRequest();
+$request = new BlocksCreateRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

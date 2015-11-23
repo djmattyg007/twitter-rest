@@ -3,9 +3,10 @@
 Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsListRequest;
 
-$request = new FriendshipsListRequest();
+$request = new FriendshipsListRequest(new OptionBagFactory());
 
 $request->setUserId('123546789,456789,7894564654');
 $userIds = $request->getUserId();

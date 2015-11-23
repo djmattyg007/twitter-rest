@@ -10,9 +10,10 @@ returned. If your goal is to obtain every list a user owns or subscribes to, use
 and/or GET [`lists/subscriptions`](subscriptions.md) instead.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsListRequest;
 
-$request = new ListsListRequest();
+$request = new ListsListRequest(new OptionBagFactory());
 
 $request->setUserId('123546789');
 $userId = $request->getUserId();

@@ -3,9 +3,10 @@
 Returns a single Tweet, specified by the id parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesShowRequest;
 
-$request = new StatusesShowRequest('123');
+$request = new StatusesShowRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

@@ -7,9 +7,10 @@ The tweeter process invoked by this method is asynchronous so the returned statu
 favorited status of the tweet.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Favorites\FavoritesDestroyRequest;
 
-$request = new FavoritesDestroyRequest('123');
+$request = new FavoritesDestroyRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

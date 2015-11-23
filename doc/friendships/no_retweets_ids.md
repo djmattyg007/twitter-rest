@@ -3,9 +3,10 @@
 Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Friendships\FriendshipsNoRetweetsIdsRequest;
 
-$request = new FriendshipsNoRetweetsIdsRequest();
+$request = new FriendshipsNoRetweetsIdsRequest(new OptionBagFactory());
 
 $request->setStringifyIds(true);
 $stringifyIds = $request->getStringifyIds();

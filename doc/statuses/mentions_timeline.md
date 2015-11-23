@@ -5,9 +5,10 @@ Returns the tweets mentioning the authenticated user.
 If no count is provided, the request will return 20 tweets.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesMentionsTimelineRequest;
 
-$request = new StatusesMentionsTimelineRequest();
+$request = new StatusesMentionsTimelineRequest(new OptionBagFactory());
 
 $request->setCount(50);
 $count = $request->getCount();

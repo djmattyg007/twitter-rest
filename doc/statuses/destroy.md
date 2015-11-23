@@ -3,9 +3,10 @@
 Destroys the status specified by the required ID parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesDestroyRequest;
 
-$request = new StatusesDestroyRequest('123');
+$request = new StatusesDestroyRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();

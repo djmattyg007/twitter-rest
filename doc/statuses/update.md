@@ -3,9 +3,10 @@
 Updates the authenticating user's current status, also known as tweeting.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesUpdateRequest;
 
-$request = new StatusesUpdateRequest('Yeah, I\'m currently updating my status!');
+$request = new StatusesUpdateRequest(new OptionBagFactory(), 'Yeah, I\'m currently updating my status!');
 
 $request->setStatus('Yeah, I\'m currently updating my status!');
 $status = $request->getStatus();

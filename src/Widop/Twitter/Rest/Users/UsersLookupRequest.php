@@ -31,7 +31,7 @@ use Widop\Twitter\Rest\AbstractPostRequest;
  */
 class UsersLookupRequest extends AbstractPostRequest
 {
-/**
+    /**
      * {@inheritdoc}
      */
     protected function configureOptionBag(OptionBagInterface $optionBag)

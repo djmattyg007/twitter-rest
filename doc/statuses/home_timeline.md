@@ -5,9 +5,10 @@ Returns the authenticated user's tweets and retweets.
 If no count is provided, the request will return 20 tweets.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesHomeTimelineRequest;
 
-$request = new StatusesHomeTimelineRequest();
+$request = new StatusesHomeTimelineRequest(new OptionBagFactory());
 
 $request->setCount(50);
 $count = $request->getCount();

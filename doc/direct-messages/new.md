@@ -3,9 +3,10 @@
 Sends a new direct message to the specified user from the authenticating user.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\DirectMessages\DirectMessagesNewRequest;
 
-$request = new DirectMessagesNewRequest('My direct message');
+$request = new DirectMessagesNewRequest(new OptionBagFactory(), 'My direct message');
 
 $request->setUserId('123456789');
 $userId = $request->getText();

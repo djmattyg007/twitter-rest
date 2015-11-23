@@ -4,9 +4,10 @@ Creates a new list for the authenticated user.
 Note that you can't create more than 20 lists per account.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Lists\ListsCreateRequest;
 
-$request = new ListsCreateRequest('johnny bravo');
+$request = new ListsCreateRequest(new OptionBagFactory(), 'johnny bravo');
 
 $request->setName('johnny bravo');
 $name = $request->getName();

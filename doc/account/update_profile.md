@@ -4,9 +4,10 @@ Sets values that users are able to set under the "Account" tab of their settings
 will be updated.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountUpdateProfileRequest;
 
-$request = new AccountUpdateProfileRequest();
+$request = new AccountUpdateProfileRequest(new OptionBagFactory());
 
 $request->setName('Marcel Molina');
 $name = $request->getName();

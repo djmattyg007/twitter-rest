@@ -3,9 +3,10 @@
 Returns the authenticated user's saved search queries.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\SavedSearches\SavedSearchesListRequest;
 
-$savedSearches = $twitter->send(new SavedSearchesListRequest());
+$savedSearches = $twitter->send(new SavedSearchesListRequest(new OptionBagFactory()));
 ```
 
 You can get more informations [here](https://dev.twitter.com/docs/api/1.1/get/saved_searches/list).

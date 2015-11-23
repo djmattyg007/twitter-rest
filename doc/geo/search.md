@@ -3,9 +3,10 @@
 Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Geo\GeoSeachRequest;
 
-$request = new GeoSeachRequest();
+$request = new GeoSeachRequest(new OptionBagFactory());
 
 $request->setLat('37.78');
 $latitude = $request->getLat();

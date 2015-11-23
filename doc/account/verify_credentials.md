@@ -4,9 +4,10 @@ Returns a representation of the requesting user if authentication was successful
 user credentials are valid.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Account\AccountVerifyCredentialsRequest;
 
-$request = new AccountVerifyCredentialsRequest();
+$request = new AccountVerifyCredentialsRequest(new OptionBagFactory());
 
 $request->setIncludeEntities(true);
 $includeEntities = $request->getIncludeEntities();

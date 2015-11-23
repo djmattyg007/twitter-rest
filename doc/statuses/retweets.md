@@ -3,9 +3,10 @@
 Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
 
 ``` php
+use Widop\Twitter\Options\OptionBagFactory;
 use Widop\Twitter\Rest\Statuses\StatusesRetweetsRequest;
 
-$request = new StatusesRetweetsRequest('123');
+$request = new StatusesRetweetsRequest(new OptionBagFactory(), '123');
 
 $request->setId('123');
 $id = $request->getId();
